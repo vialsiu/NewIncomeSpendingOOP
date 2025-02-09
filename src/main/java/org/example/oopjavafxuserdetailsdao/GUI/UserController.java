@@ -9,6 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/// Controller defines event listeners that capture events generated
+/// by the GUI. (i.e. onButtonClick etc.)
+/// The event listeners (event handlers) contain code that will
+/// update the state of the UI and/or the state of teh Model containing
+/// the underlying data.
+
 public class UserController {
 
     // reference to the user Model (one User object)

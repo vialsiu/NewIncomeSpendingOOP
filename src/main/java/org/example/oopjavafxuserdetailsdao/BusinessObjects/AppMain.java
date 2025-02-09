@@ -1,5 +1,9 @@
 package org.example.oopjavafxuserdetailsdao.BusinessObjects;
 
+/// Running this App gives you a Console Menu
+/// with NO GUI.  Run "GUIAppMain" main class to
+/// use the App with a GUI.
+
 /** OOP Jan 2025
  * This AppMain demonstrates the use of a Data Access Layer
  * to separate Business logic from Database specific logic.
