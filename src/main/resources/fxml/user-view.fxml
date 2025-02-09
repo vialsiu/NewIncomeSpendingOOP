@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This FXML file declares the UI Controls that make up    >>>Feb 2025<<<
+    the User Interface (UI). Each GUI screen is a hierarchy of UI
+    containers and controls, called Nodes in JavaFX.
+    This file is read by JavaFX and turned into java objects which are
+    accessible in the associated controller.
+    Use the [Scene Builder] tab at the bottom to switch to the
+    screen builder tool.
+ -->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="BASELINE_LEFT" prefHeight="611.0" prefWidth="431.0" spacing="20.0"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.oopjavafxuserdetailsdao.GUI.UserController">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="titleText" text="User Details Screen" textFill="BLUE">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+   <HBox prefHeight="26.0" prefWidth="391.0">
+      <children>
+         <Label text="Username: " />
+         <TextField fx:id="username_inputted" promptText="enter username" />
+      </children>
+   </HBox>
+   <HBox prefHeight="28.0" prefWidth="391.0">
+      <children>
+         <Label text="Password: " />
+         <TextField fx:id="password_inputted" promptText="enter password" />
+      </children>
+   </HBox>
+
+    <Button id="getUserDetailsButton"
+            fx:id="getUserDetailsButton"
+            onMouseClicked="#getUserDetailsButtonClicked"
+            text="Get User Details" />
+
+    <HBox prefHeight="33.0" prefWidth="391.0">
+        <Label text="User ID: "/>
+        <TextField fx:id="user_id"/>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <Label text="First Name: "/>
+        <TextField fx:id="first_name"/>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <Label text="Last Name: "/>
+        <TextField fx:id="last_name"/>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <Label text="Username: ">
+           <font>
+               <Font name="System Italic" size="12.0"/>
+           </font>
+        </Label>
+        <TextField fx:id="username"/>
+    </HBox>
+    <HBox prefHeight="29.0" prefWidth="391.0">
+        <Label text="Password: ">
+           <font>
+               <Font name="System Italic" size="12.0"/>
+           </font>
+        </Label>
+        <TextField fx:id="password"/>
+    </HBox>
+
+    <Button fx:id="clearAllButton"
+            onMouseClicked="#onClearAllButtonClick" text="Clear Details" />
+
+    <Label prefHeight="18.0" prefWidth="379.0" text="Messages:" />
+    <Label fx:id="messageLabel" prefHeight="18.0" prefWidth="378.0" text="Event messages display here..." />
+
+</VBox>
