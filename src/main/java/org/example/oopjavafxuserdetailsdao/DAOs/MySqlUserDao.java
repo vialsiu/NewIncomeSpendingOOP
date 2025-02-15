@@ -1,24 +1,5 @@
 package org.example.oopjavafxuserdetailsdao.DAOs;
 
-/**
- * OOP Feb 2024
- * <p>
- * Data Access Object (DAO) for User table with MySQL-specific code
- * This 'concrete' class implements the 'UserDaoInterface'.
- * <p>
- * The DAO will contain the SQL query code to interact with the database,
- * so, the code here is specific to a MySql database.
- * No SQL queries will be used in the Business logic layer of code, thus, it
- * will be independent of the database specifics. Changes to code related to
- * the database are all contained withing the DAO code base.
- * <p>
- * <p>
- * The Business Logic layer is only permitted to access the database by calling
- * methods provided in the Data Access Layer - i.e. by calling the DAO methods.
- * In this way, the Business Logic layer is seperated from the database specific code
- * in the DAO layer.
- */
-
 import org.example.oopjavafxuserdetailsdao.DTOs.User;
 import org.example.oopjavafxuserdetailsdao.Exceptions.DaoException;
 
@@ -30,11 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
-    /**
-     * Will access and return a List of all users in User database table
-     * @return List of User objects
-     * @throws DaoException
-     */
+
     @Override
     public List<User> findAllUsers() throws DaoException {
         Connection connection = null;
@@ -43,14 +20,12 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
         List<User> usersList = new ArrayList<>();
 
         try {
-            //Get connection object using the getConnection() method inherited
-            // from the super class (MySqlDao.java)
+
             connection = this.getConnection();
 
             String query = "SELECT * FROM USER";
             preparedStatement = connection.prepareStatement(query);
 
-            //Using a PreparedStatement to execute SQL...
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int userId = resultSet.getInt("USER_ID");
@@ -78,16 +53,10 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
                 throw new DaoException("findAllUsers() " + e.getMessage());
             }
         }
-        return usersList;     // may be empty
+        return usersList;
     }
 
-    /**
-     * Given a username and password, find the corresponding User
-     * @param user_name
-     * @param password
-     * @return User object if found, or null otherwise
-     * @throws DaoException
-     */
+
     @Override
     public User findUserByUsernamePassword(String user_name, String password) throws DaoException {
         Connection connection = null;
@@ -129,7 +98,7 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
                 throw new DaoException("findUserByUsernamePassword() " + e.getMessage());
             }
         }
-        return user;     // reference to User object, or null value
+        return user;
     }
 }
 
