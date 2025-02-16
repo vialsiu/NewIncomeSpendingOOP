@@ -10,6 +10,10 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
+
+// --------- IMPORTANT: the project is in the MASTER branch on github, not MAIN branch
+// --------- https://github.com/vialsiu/NewIncomeSpendingOOP/tree/master
+
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
