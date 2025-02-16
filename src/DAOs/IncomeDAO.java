@@ -45,15 +45,16 @@ public class IncomeDAO implements IncomeInterface {
     }
 
     @Override
-    public void addIncome(String title, double amount, Date date) throws DaoException {
-        String query = "INSERT INTO income (title, amount, dateReceived) VALUES (?, ?, ?)";
+    public void addIncome(Income income) throws DaoException {  // @Override is now valid
+        String query = "INSERT INTO income (title, source, amount, dateReceived) VALUES (?, ?, ?, ?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, title);
-            preparedStatement.setDouble(2, amount);
-            preparedStatement.setDate(3, date);
+            preparedStatement.setString(1, income.getTitle());
+            preparedStatement.setString(2, income.getSource());  // Using source from Income object
+            preparedStatement.setDouble(3, income.getAmount());
+            preparedStatement.setDate(4, income.getDateReceived());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

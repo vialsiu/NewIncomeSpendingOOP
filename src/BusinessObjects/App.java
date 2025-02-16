@@ -78,6 +78,28 @@ public class App {
 
                 case "5":
                     // -------- add a new income
+                    System.out.print("Enter the title of the income: ");
+                    String incomeTitle = scanner.nextLine();
+
+                    System.out.print("Enter the source of the income (e.g., Salary, Side Job, etc.): ");
+                    String incomeSource = scanner.nextLine();  // Getting source input from user
+
+                    System.out.print("Enter the amount of the income: ");
+                    double incomeAmount = Double.parseDouble(scanner.nextLine());
+
+                    System.out.print("Enter the date of the income (YYYY-MM-DD): ");
+                    String incomeDateStr = scanner.nextLine();
+                    Date incomeDate = Date.valueOf(incomeDateStr);
+
+                    // Create the Income object
+                    Income newIncome = new Income(incomeTitle, incomeSource, incomeAmount, incomeDate);
+
+                    try {
+                        incomeDAO.addIncome(newIncome);  // Pass the entire Income object
+                        System.out.println("New income added successfully.");
+                    } catch (DaoException e) {
+                        System.out.println("Error adding income: " + e.getMessage());
+                    }
                     break;
 
                 case "6":

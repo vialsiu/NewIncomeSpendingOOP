@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02e208ab-7e9d-4ff2-b13e-9269f329aa94" name="Changes" comment="Well pretty much finished expenseDAO based off my work in class it all works the same">
+    <list default="true" id="02e208ab-7e9d-4ff2-b13e-9269f329aa94" name="Changes" comment="verified and tested deleting an income">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BusinessObjects/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessObjects/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAOs/IncomeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/IncomeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAOs/IncomeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/IncomeInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +102,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1739709622724</updated>
-      <workItem from="1739709623794" duration="5516000" />
+      <workItem from="1739709623794" duration="6263000" />
     </task>
     <task id="LOCAL-00001" summary="App menu built based off my AES project menu, There was a problem running my App file because of my intellij config">
       <option name="closed" value="true" />
@@ -149,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739716143886</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="verified and tested deleting an income">
+      <option name="closed" value="true" />
+      <created>1739716524916</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739716524916</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +172,7 @@
     <MESSAGE value="IncomeDAO structured" />
     <MESSAGE value="IncomeDAO works to complete part 1 in app, based off dermot code file op22" />
     <MESSAGE value="Well pretty much finished expenseDAO based off my work in class it all works the same" />
-    <option name="LAST_COMMIT_MESSAGE" value="Well pretty much finished expenseDAO based off my work in class it all works the same" />
+    <MESSAGE value="verified and tested deleting an income" />
+    <option name="LAST_COMMIT_MESSAGE" value="verified and tested deleting an income" />
   </component>
 </project>
