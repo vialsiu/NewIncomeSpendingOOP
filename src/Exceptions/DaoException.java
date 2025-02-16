@@ -9,8 +9,7 @@ public class DaoException extends SQLException
         // not used rn
     }
 
-    public DaoException(String aMessage)
-    {
+    public DaoException(String aMessage) {
         super(aMessage);
     }
 }

@@ -1,10 +1,21 @@
 package BusinessObjects;
 
+import DAOs.IncomeDAO;
+import DAOs.ExpenseDAO;
+import DTOs.Income;
+import DTOs.Expense;
+import Exceptions.DaoException;
+
+import java.sql.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        IncomeDAO incomeDAO = new IncomeDAO();
+        ExpenseDAO expenseDAO = new ExpenseDAO();
+
         boolean finished = false;
 
         while (!finished) {
@@ -24,30 +35,50 @@ public class App {
 
             switch (choice) {
                 case "1":
-                    // Call function to display all incomes
+                    // List all incomes
+                    try {
+                        List<Income> incomes = incomeDAO.findAllIncome();
+                        for (Income income : incomes) {
+                            System.out.println(income);
+                        }
+                    } catch (DaoException e) {
+                        System.out.println("Error retrieving incomes: " + e.getMessage());
+                    }
                     break;
+
                 case "2":
-                    // Call function to display all expenses
+                    // List all expenses
+
                     break;
+
                 case "3":
-                    // Call function to delete an income by ID
+                    // Delete an income by ID
+
                     break;
+
                 case "4":
-                    // Call function to delete an expense by ID
+                    // Delete an expense by ID
+
                     break;
+
                 case "5":
-                    // Call function to add a new income
+                    // Add a new income
                     break;
+
                 case "6":
-                    // Call function to add a new expense
+                    // Add a new expense (similar to income)
+
                     break;
+
                 case "7":
-                    // Call function to examine income and expenses by month
+                    // Examine income and expenses by month
                     break;
+
                 case "8":
                     finished = true;
                     System.out.println("Exiting application...");
                     break;
+
                 default:
                     System.out.println("Invalid choice. Please enter a valid option.");
             }

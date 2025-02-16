@@ -1,13 +1,14 @@
 package DAOs;
 
 import DTOs.Income;
+import Exceptions.DaoException;
+import java.sql.*;
 import java.util.List;
-import java.util.Date;
 
 public interface IncomeInterface {
-     void addIncome(Income income);
-        void deleteIncome(int incomeID);
-        List<IncomeDao> listAllIncomes();
-        double calculateTotalIncome();
-        List<Income> listIncomesByMonth(int month, int year);
-    }
+    List<Income> findAllIncome() throws DaoException;
+    void addIncome(String title, double amount, Date date) throws DaoException;  // match method signature
+    void deleteIncome(int id) throws DaoException;
+    double getTotalIncome() throws DaoException;
+    double getIncomeForMonth(int month, int year) throws DaoException;
+}

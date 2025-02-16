@@ -1,38 +1,121 @@
 package DAOs;
+
 import DTOs.Income;
+import Exceptions.DaoException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IncomeDAO extends MySQLDao {
+public class IncomeDAO implements IncomeInterface {
 
-    // -----fetch
-    public List<Income> findAll() {
-        ArrayList<Income> incomes = new ArrayList<>();
+    private MySQLDao mySQLDao;
 
-        try {
-            // --------connect
-            Connection conn = getConnection();
-            String query = "SELECT * FROM income;";
-            PreparedStatement ps = conn.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                int incomeID = rs.getInt(1);
-                String title = rs.getString(2);
-                String category = rs.getString(3);
-                double amount = rs.getDouble(4);
-                Date dateEarned = rs.getDate(5);
+    public IncomeDAO() {
+        //-------instanciated
+        mySQLDao = new MySQLDao();
+    }
 
-                Income income = new Income(incomeID, title, category, amount, dateEarned);
-                incomes.add(income);
+        //------ new connection to finance_dept
+    private Connection getConnection() throws DaoException {
+        return mySQLDao.getConnection(); // Use MySQLDao to get the connection
+    }
+
+    @Override
+    public List<Income> findAllIncome() throws DaoException {
+        List<Income> incomeList = new ArrayList<>();
+        String query = "SELECT * FROM incomes";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("incomeID");
+                String title = resultSet.getString("title");
+                String source = resultSet.getString("source");
+                double amount = resultSet.getDouble("amount");
+                Date dateEarned = resultSet.getDate("dateReceived");
+
+                incomeList.add(new Income(id, title, source, amount, dateEarned));
             }
+        } catch (SQLException e) {
+            throw new DaoException("findAllIncome() " + e.getMessage());
         }
-        catch (SQLException e) {
-            System.out.println("An error occurred while accessing the database:");
-            e.printStackTrace();
-            System.exit(1);
-        }
+        return incomeList;
+    }
 
-        return incomes;
+    @Override
+    public void addIncome(String title, double amount, Date date) throws DaoException {
+        String query = "INSERT INTO income (title, amount, dateReceived) VALUES (?, ?, ?)";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, title);
+            preparedStatement.setDouble(2, amount);
+            preparedStatement.setDate(3, date);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new DaoException("addIncome() " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void deleteIncome(int id) throws DaoException {
+        String query = "DELETE FROM income WHERE incomeID = ?";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, id);
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Income deleted successfully.");
+            } else {
+                System.out.println("No income found with the given ID.");
+            }
+        } catch (SQLException e) {
+            throw new DaoException("deleteIncome() " + e.getMessage());
+        }
+    }
+
+    @Override
+    public double getTotalIncome() throws DaoException {
+        String query = "SELECT SUM(amount) AS total FROM income";
+        double totalIncome = 0;
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            if (resultSet.next()) {
+                totalIncome = resultSet.getDouble("total");
+            }
+        } catch (SQLException e) {
+            throw new DaoException("getTotalIncome() " + e.getMessage());
+        }
+        return totalIncome;
+    }
+
+    @Override
+    public double getIncomeForMonth(int month, int year) throws DaoException {
+        String query = "SELECT SUM(amount) AS total FROM income WHERE MONTH(dateReceived) = ? AND YEAR(dateReceived) = ?";
+        double totalIncome = 0;
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, month);
+            preparedStatement.setInt(2, year);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                totalIncome = resultSet.getDouble("total");
+            }
+        } catch (SQLException e) {
+            throw new DaoException("getIncomeForMonth() " + e.getMessage());
+        }
+        return totalIncome;
     }
 }
