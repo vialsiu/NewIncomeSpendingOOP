@@ -27,7 +27,7 @@ public class App {
             System.out.println("4) Delete an expense by ID number.");
             System.out.println("5) Add a new income.");
             System.out.println("6) Add a new expense.");
-            System.out.println("7) Examine income and expenses by month.");
+            System.out.println("7) Analyse income and expenses by month.");
             System.out.println("8) Exit.");
             System.out.println("---------------------------------");
             System.out.print("Enter your choice: ");
@@ -35,7 +35,7 @@ public class App {
 
             switch (choice) {
                 case "1":
-                    // List all incomes
+                    // -------- list all incomes
                     try {
                         List<Income> incomes = incomeDAO.findAllIncome();
                         for (Income income : incomes) {
@@ -47,31 +47,39 @@ public class App {
                     break;
 
                 case "2":
-                    // List all expenses
-
+                    // -------- list all expenses
+                    try {
+                        List<Expense> expenses = expenseDAO.listAllExpenses();
+                        for (Expense expense : expenses) {
+                            System.out.println(expense);
+                        }
+                    } catch (DaoException e) {
+                        System.out.println("Error retrieving expenses: " + e.getMessage());
+                        e.printStackTrace();
+                    }
                     break;
 
                 case "3":
-                    // Delete an income by ID
+                    // ------- delete an income by ID
 
                     break;
 
                 case "4":
-                    // Delete an expense by ID
+                    // -------- delete an expense by ID
 
                     break;
 
                 case "5":
-                    // Add a new income
+                    // -------- add a new income
                     break;
 
                 case "6":
-                    // Add a new expense (similar to income)
+                    // -------- add a new expense
 
                     break;
 
                 case "7":
-                    // Examine income and expenses by month
+                    // --------- examine income and expenses by month
                     break;
 
                 case "8":
