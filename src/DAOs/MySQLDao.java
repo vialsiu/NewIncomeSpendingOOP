@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class MySQLDao {
     private String driver = "com.mysql.cj.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/finance_dept"; // Use your actual database name here
+    private String url = "jdbc:mysql://localhost:3306/finance_dept";
     private String username = "root";
     private String password = "";
 

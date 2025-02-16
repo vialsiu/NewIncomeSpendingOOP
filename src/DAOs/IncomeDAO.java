@@ -17,7 +17,7 @@ public class IncomeDAO implements IncomeInterface {
 
         //------ new connection to finance_dept
     private Connection getConnection() throws DaoException {
-        return mySQLDao.getConnection(); // Use MySQLDao to get the connection
+        return mySQLDao.getConnection();
     }
 
     @Override
@@ -45,14 +45,14 @@ public class IncomeDAO implements IncomeInterface {
     }
 
     @Override
-    public void addIncome(Income income) throws DaoException {  // @Override is now valid
+    public void addIncome(Income income) throws DaoException {
         String query = "INSERT INTO income (title, source, amount, dateReceived) VALUES (?, ?, ?, ?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, income.getTitle());
-            preparedStatement.setString(2, income.getSource());  // Using source from Income object
+            preparedStatement.setString(2, income.getSource());
             preparedStatement.setDouble(3, income.getAmount());
             preparedStatement.setDate(4, income.getDateReceived());
 
