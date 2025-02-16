@@ -125,7 +125,24 @@ public class App {
                     break;
 
                 case "7":
-                    // --------- examine income and expenses by month
+                    // --------- analyze income and expenses by month
+                    System.out.print("Enter the month (1-12) to analyze: ");
+                    int month = Integer.parseInt(scanner.nextLine());
+
+                    System.out.print("Enter the year to analyze: ");
+                    int year = Integer.parseInt(scanner.nextLine());
+
+                    try {
+                        double totalIncome = incomeDAO.getIncomeForMonth(month, year);
+                        double totalExpense = expenseDAO.getExpenseForMonth(month, year);
+                        double balance = totalIncome - totalExpense;
+
+                        System.out.println("Total income for " + month + "/" + year + ": " + totalIncome);
+                        System.out.println("Total expense for " + month + "/" + year + ": " + totalExpense);
+                        System.out.println("Balance for " + month + "/" + year + ": " + balance);
+                    } catch (DaoException e) {
+                        System.out.println("Error analyzing income and expenses: " + e.getMessage());
+                    }
                     break;
 
                 case "8":
