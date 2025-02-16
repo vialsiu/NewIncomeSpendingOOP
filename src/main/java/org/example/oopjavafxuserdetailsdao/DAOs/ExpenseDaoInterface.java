@@ -5,6 +5,7 @@ import org.example.oopjavafxuserdetailsdao.Exceptions.DaoException;
 import java.util.List;
 
 public interface ExpenseDaoInterface {
-    List<Expense> findAllExpenses() throws DaoException;
     int insertExpense(Expense expense) throws DaoException;
+    List<Expense> findAllExpenses() throws DaoException;
+    boolean deleteExpenseById(int id) throws DaoException;
 }
