@@ -61,7 +61,14 @@ public class App {
 
                 case "3":
                     // ------- delete an income by ID
-
+                    System.out.print("Enter the ID of the income to delete: ");
+                    int incomeID = Integer.parseInt(scanner.nextLine());
+                    try {
+                        incomeDAO.deleteIncome(incomeID);
+                        System.out.println("Income with ID " + incomeID + " deleted successfully.");
+                    } catch (DaoException e) {
+                        System.out.println("Error deleting income: " + e.getMessage());
+                    }
                     break;
 
                 case "4":

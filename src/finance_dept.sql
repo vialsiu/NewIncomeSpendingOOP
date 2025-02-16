@@ -12,7 +12,7 @@ CREATE TABLE expenses (
     dateIncurred DATE NOT NULL
 );
 
-CREATE TABLE incomes (
+CREATE TABLE income (
     incomeID INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     source VARCHAR(50),

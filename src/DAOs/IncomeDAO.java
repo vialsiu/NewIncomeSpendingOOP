@@ -23,7 +23,7 @@ public class IncomeDAO implements IncomeInterface {
     @Override
     public List<Income> findAllIncome() throws DaoException {
         List<Income> incomeList = new ArrayList<>();
-        String query = "SELECT * FROM incomes";
+        String query = "SELECT * FROM income";
 
         try (Connection connection = this.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query);
