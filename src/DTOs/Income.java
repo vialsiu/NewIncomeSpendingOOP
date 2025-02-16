@@ -17,6 +17,11 @@ public class Income {
         this.dateReceived = dateReceived;
     }
 
+    // ----- my constructor for inserts
+    public Income(String title, String source, double amount, Date dateReceived) {
+        this(0, title, source, amount, dateReceived);
+    }
+
     public int getIncomeID() { return incomeID; }
     public String getTitle() { return title; }
     public String getSource() { return source; }

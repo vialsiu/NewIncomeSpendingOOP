@@ -6,7 +6,7 @@ import java.sql.*;
 public class MySqlDao {
     public Connection getConnection() throws DaoException {
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/finance_tracker";
+        String url = "jdbc:mysql://localhost:3306/finance_dept";
         String username = "root";
         String password = "";
 
