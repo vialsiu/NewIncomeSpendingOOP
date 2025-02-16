@@ -41,6 +41,8 @@ public class App {
                         for (Income income : incomes) {
                             System.out.println(income);
                         }
+                        double totalIncome = incomeDAO.getTotalIncome();
+                        System.out.printf("Total Income: €%.2f%n", totalIncome);
                     } catch (DaoException e) {
                         System.out.println("Error retrieving incomes: " + e.getMessage());
                     }
@@ -53,6 +55,8 @@ public class App {
                         for (Expense expense : expenses) {
                             System.out.println(expense);
                         }
+                        double totalExpense = expenseDAO.getTotalExpense();
+                        System.out.printf("Total Expenditure: €%.2f%n", totalExpense);
                     } catch (DaoException e) {
                         System.out.println("Error retrieving expenses: " + e.getMessage());
                         e.printStackTrace();

@@ -30,7 +30,7 @@ public class Income {
 
     @Override
     public String toString() {
-        return String.format("Expense [ID: %d, Title: %s, Category: %s, Amount: %.2f, Date: %s]",
+        return String.format("Income [ID: %d, Title: %s, Category: %s, Amount: %.2f, Date: %s]",
                 incomeID, title, source, amount, dateReceived);
     }
 }
