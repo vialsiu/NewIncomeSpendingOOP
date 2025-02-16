@@ -3,7 +3,7 @@ package DAOs;
 import Exceptions.DaoException;
 import java.sql.*;
 
-public class MySqlDao {
+public class MySQLDao {
     public Connection getConnection() throws DaoException {
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/finance_dept";
