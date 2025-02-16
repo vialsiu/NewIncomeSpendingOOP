@@ -106,7 +106,22 @@ public class App {
 
                 case "6":
                     // -------- add a new expense
-
+                    System.out.print("Enter the title of the expense: ");
+                    String expenseTitle = scanner.nextLine();
+                    System.out.print("Enter the category of the expense (e.g., Bills, Entertainment, etc.): ");
+                    String expenseCategory = scanner.nextLine();
+                    System.out.print("Enter the amount of the expense: ");
+                    double expenseAmount = Double.parseDouble(scanner.nextLine());
+                    System.out.print("Enter the date of the expense (YYYY-MM-DD): ");
+                    String expenseDateStr = scanner.nextLine();
+                    Date expenseDate = Date.valueOf(expenseDateStr);
+                    Expense newExpense = new Expense(expenseTitle, expenseCategory, expenseAmount, expenseDate);
+                    try {
+                        expenseDAO.addExpense(newExpense);
+                        System.out.println("New expense added successfully.");
+                    } catch (DaoException e) {
+                        System.out.println("Error adding expense: " + e.getMessage());
+                    }
                     break;
 
                 case "7":

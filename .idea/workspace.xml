@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02e208ab-7e9d-4ff2-b13e-9269f329aa94" name="Changes" comment="got the income addition to work">
+    <list default="true" id="02e208ab-7e9d-4ff2-b13e-9269f329aa94" name="Changes" comment="the expense addition all the same">
       <change beforePath="$PROJECT_DIR$/src/BusinessObjects/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessObjects/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAOs/ExpenseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/ExpenseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAOs/ExpenseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/ExpenseInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1739709622724</updated>
-      <workItem from="1739709623794" duration="7134000" />
+      <workItem from="1739709623794" duration="7529000" />
     </task>
     <task id="LOCAL-00001" summary="App menu built based off my AES project menu, There was a problem running my App file because of my intellij config">
       <option name="closed" value="true" />
@@ -167,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739717098276</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="the expense addition all the same">
+      <option name="closed" value="true" />
+      <created>1739718222032</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739718222032</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +187,7 @@
     <MESSAGE value="Well pretty much finished expenseDAO based off my work in class it all works the same" />
     <MESSAGE value="verified and tested deleting an income" />
     <MESSAGE value="got the income addition to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="got the income addition to work" />
+    <MESSAGE value="the expense addition all the same" />
+    <option name="LAST_COMMIT_MESSAGE" value="the expense addition all the same" />
   </component>
 </project>
